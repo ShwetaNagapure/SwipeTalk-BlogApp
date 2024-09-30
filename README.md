@@ -81,19 +81,19 @@ This will create the \`login.db\` file with the necessary tables for users and b
 
 ## Routes
 
-- \`/\` : Home page displaying all blog posts.
-- \`/register\` : User registration page.
-- \`/login\` : User login page.
-- \`/logout\` : Logs the user out.
-- \`/blogpost\` : Page for creating a new blog post.
-- \`/blog_detail/<int:blog_id>\` : View details of a specific blog post.
-- \`/edit/<int:blog_id>\` : Edit a blog post.
-- \`/delete/<int:blog_id>\` : Delete a blog post.
+- `/` : Home page displaying all blog posts.
+- `/register` : User registration page.
+- `/login` : User login page.
+- `/logout` : Logs the user out.
+- `/blogpost` : Page for creating a new blog post.
+- `/blog_detail/<int:blog_id>` : View details of a specific blog post.
+- `/edit/<int:blog_id>` : Edit a blog post.
+- `/delete/<int:blog_id>` : Delete a blog post.
 
 ## User Authentication
 
 - Users can register and log in using their credentials. 
-- The application uses the \`Flask-Login\` extension to manage user sessions. 
+- The application uses the `Flask-Login` extension to manage user sessions. 
 - A registered user can create, edit, or delete their blog posts after logging in.
 
 ## Flash Messages
