@@ -26,23 +26,23 @@ To run this application, you need to have Python installed on your system along 
 
 You can install the dependencies by running the following command:
 
-\`\`\`bash
+```bash
 pip install flask flask-sqlalchemy flask-login
-\`\`\`
+```
 
 ## Database Setup
 The application uses SQLite as the database. To initialize the database, run the following commands in the Python shell:
 
-\`\`\`python
+``` python
 from app import db
 db.create_all()
-\`\`\`
+```
 
 This will create the \`login.db\` file with the necessary tables for users and blog posts.
 
 ## File Structure
 
-\`\`\`plaintext
+```
 ├── app.py            # Main application file
 ├── login.db          # SQLite database file (auto-created after running the app)
 ├── templates         # HTML files for rendering views
@@ -53,29 +53,29 @@ This will create the \`login.db\` file with the necessary tables for users and b
 │   ├── blog_detail.html # Blog details page
 │   ├── edit.html     # Blog editing page
 └── static            # Directory for static files like CSS/JavaScript (if used)
-\`\`\`
+```
 
 ## How to Run
 
 1. Clone this repository to your local machine.
 2. Install the required dependencies using:
 
-   \`\`\`bash
+ ``` bash
    pip install -r requirements.txt
-   \`\`\`
+```
 
 3. Initialize the database by running the following commands in the Python shell:
 
-   \`\`\`python
+```python
    from app import db
    db.create_all()
-   \`\`\`
+```
 
 4. Run the Flask application using:
 
-   \`\`\`bash
+```bash
    python app.py
-   \`\`\`
+```
 
 5. Visit \`http://127.0.0.1:5000/\` in your browser to access the application.
 
