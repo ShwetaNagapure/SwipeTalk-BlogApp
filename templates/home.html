@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SwipeTalk-BlogApp</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f8f9fa;
+            color: #333;
+        }
+
+        .navbar {
+            background-color: #2c3e50;
+            padding: 15px 0;
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        .navbar a {
+            color: #ecf0f1;
+            text-decoration: none;
+            padding: 10px 20px;
+            transition: background-color 0.3s;
+        }
+
+        .navbar a:hover {
+            background-color: #34495e;
+        }
+
+        .header-image {
+            width: 100%;
+            object-fit: cover;
+            margin-top: 50px;
+            
+        }
+
+        .content {
+            padding: 40px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        h1 {
+            color: #2c3e50;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .intro {
+            text-align: center;
+            font-size: 1.2em;
+            margin-bottom: 40px;
+            color: #7f8c8d;
+        }
+
+        .blog-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .blog-card {
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            padding: 25px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .blog-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+        }
+
+        .blog-title {
+            font-size: 1.4em;
+            margin-bottom: 10px;
+            color: #2c3e50;
+        }
+
+        .blog-author {
+            font-size: 0.9em;
+            color: #95a5a6;
+            margin-bottom: 15px;
+        }
+
+        .blog-content {
+            font-size: 1em;
+            color: #34495e;
+            line-height: 1.6;
+            margin-bottom: 20px;
+            flex-grow: 1;
+        }
+
+        .blog-date {
+            font-size: 0.8em;
+            color: #bdc3c7;
+            text-align: right;
+            margin-bottom: 15px;
+        }
+
+        .read-more-btn {
+            background-color: #3498db;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            text-align: center;
+            text-decoration: none;
+            font-size: 0.9em;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            align-self: flex-start;
+        }
+
+        .read-more-btn:hover {
+            background-color: #2980b9;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="navbar">
+        {% if current_user.is_authenticated %}
+            <a href="">{{current_user.username}}</a>
+            <a href="/blogpost">Post Blog</a>
+            <a href='/logout'>Logout</a>
+        {% else %}
+            <a href="/register">Register</a>
+            <a href="/login">Login</a>
+            <a href="#contact">Contact</a>
+        {% endif %}
+    </div>
+
+    <img src="{{ url_for('static', filename='myimg.png') }}" alt="Blog Header" class="header-image">
+
+    <div class="content">
+        <h1>Welcome to SwipeTalk</h1>
+        <p class="intro">"Swipe. Read. Repeat. Where Trends and Thoughts Collide."</p>
+
+        <div class="blog-container">
+            {% for blog in data %}
+            <div class="blog-card">
+                <div class="blog-title">{{blog.title}}</div>
+                <div class="blog-author">by {{blog.author}}</div>
+                <div class="blog-content">{{blog.content | truncate(150) }}</div>
+                <div class="blog-date">{{blog.publish_date}}</div>
+                <a href="/blog_detail/{{blog.blog_id}}" class="read-more-btn">Continue Reading</a>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</body>
+</html>
