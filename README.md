@@ -100,8 +100,3 @@ This will create the \`login.db\` file with the necessary tables for users and b
 
 Flash messages are used to notify users about the status of their actions such as successful registration, login, blog creation, editing, or deletion.
 
-## License
-This project is licensed under the MIT License.
-
-## Author
-Ramesh Nagapure
