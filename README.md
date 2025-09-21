@@ -77,7 +77,7 @@ This will create the \`login.db\` file with the necessary tables for users and b
    python app.py
 ```
 
-5. Visit \`http://127.0.0.1:5000/\` in your browser to access the application.
+5. Visit \`http://127.0.0.1:5000/\` in your browser to access the application locally.
 
 ## Routes
 
